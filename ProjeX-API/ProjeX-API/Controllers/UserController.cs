@@ -23,9 +23,9 @@ namespace ProjeX_API.Controllers
         [HttpPost("register")]
         public async Task<ActionResult<UserDto>> Register(UserDto userDto)
         {
-            if (_context.Users.Any(u => u.Username == userDto.Username))
+            if (_context.Users.Any(u => u.Email == userDto.Email))
             {
-                return BadRequest("Username already exists");
+                return BadRequest("Email already exists");
             }
 
             var user = new User
@@ -39,13 +39,17 @@ namespace ProjeX_API.Controllers
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
 
-            return Ok(new UserDto(user));
+            // Generate a JWT token for the user
+            var token = JwtService.GenerateToken(user.Id);
+
+            // Return the token in the response
+            return Ok(new { token });
         }
 
         [HttpPost("login")]
         public IActionResult Login(UserLoginDto userDto)
         {
-            var user = _context.Users.FirstOrDefault(u => u.Username == userDto.Username);
+            var user = _context.Users.FirstOrDefault(u => u.Email == userDto.Email);
             if (user == null)
             {
                 return BadRequest(new { message = "Username or password is incorrect" });

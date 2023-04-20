@@ -13,7 +13,7 @@ namespace ProjeX_API.Services
     public static class JwtService
     {
 
-        private static string SecretKey = Environment.GetEnvironmentVariable("TOKEN_SECRET_KEY"); // Replace with your own secret key
+        private static string SecretKey = Environment.GetEnvironmentVariable("TOKEN_SECRET_KEY") == null ? "ThisIsATestOnlySecretKey,YouShouldMakeAStrongKeyAndHaveItAsAnEnvironmentVariable" : Environment.GetEnvironmentVariable("TOKEN_SECRET_KEY");
         private static int TokenExpiryInMinutes = 300; // Set token expiry time to 300 minutes
 
         public static string GenerateToken(int userId)

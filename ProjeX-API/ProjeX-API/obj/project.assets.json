@@ -7429,6 +7429,7 @@
       "BCrypt.Net >= 0.1.0",
       "DotNetEnv >= 2.5.0",
       "Microsoft.EntityFrameworkCore.Design >= 8.0.0-preview.3.23174.2",
+      "Microsoft.EntityFrameworkCore.Relational >= 8.0.0-preview.3.23174.2",
       "Microsoft.EntityFrameworkCore.SqlServer >= 8.0.0-preview.3.23174.2",
       "Swashbuckle.AspNetCore >= 6.2.3"
     ]
@@ -7483,6 +7484,10 @@
           "Microsoft.EntityFrameworkCore.Design": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
             "suppressParent": "All",
+            "target": "Package",
+            "version": "[8.0.0-preview.3.23174.2, )"
+          },
+          "Microsoft.EntityFrameworkCore.Relational": {
             "target": "Package",
             "version": "[8.0.0-preview.3.23174.2, )"
           },

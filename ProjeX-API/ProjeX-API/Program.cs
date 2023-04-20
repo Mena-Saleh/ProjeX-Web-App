@@ -2,6 +2,8 @@ global using ProjeX_API.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+// Allow requests from any origin, method, and header.
+
 
 // Add services to the container.
 
@@ -12,7 +14,15 @@ builder.Services.AddDbContext<ProjeXContext>(options => {
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(builder =>
+    {
+        builder.AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader();
+    });
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -27,5 +37,9 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+// Allows the API to accept requests from any domain, not good practice to have it like this, but it is like that for testing purposes for now
+app.UseCors();
+
 
 app.Run();

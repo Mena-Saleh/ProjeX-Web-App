@@ -1,0 +1,307 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Nav */
+
+nav{    
+    font-size: 15px;
+    width: 100%;
+    height: 50px;
+    background-color: #073B4C;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: #FFF;
+
+}
+
+nav ul{
+    margin-left: 20%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+}
+nav ul li{
+    display: inline;
+}
+
+nav ul li a{
+    color: #FFF;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: 0.5s;
+}
+
+nav ul li a:hover{
+    color: #AAA;
+}
+
+
+.logo{
+    width: 100px;
+}
+
+
+
+.logout-button{
+    font-size: 15px;
+    border: none;
+    padding: 5px;
+    border-radius: 3px;
+    background-color:transparent;
+    color: #FFF;
+    transition: 0.3s;
+}
+
+.logout-button:hover{
+    transition: 0.3;
+    color: #ff4d4d;
+}
+
+/* Footer */
+footer {
+    background-color: #073B4C;
+    color: #FFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .footer-icon {
+    color: #984447;
+    font-size: 20px;
+    margin: 10px;
+  }
+
+/* Login and Register forms */
+
+.login-register-container{
+    /* background-image: linear-gradient(rgba(6, 9, 30, 0.6),rgba(3, 9, 30, 0.8)),url(./public/background.jpg);
+    background-position: center;
+    background-size: cover; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+ 
+form {
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 400px;
+    max-width: 600px;
+    padding: 40px;
+    border-radius: 5px;
+    border: 1px solid #073b4c;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+form label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #984447;
+}
+form input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #073b4c;
+    background-color: #E8F0FE;
+    color: #2c1b07;
+}
+
+form .error {
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #984447;
+}
+
+form button[type="submit"] {
+    border-radius: 3px;
+    display: block;
+    width: 50%;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #e49e4e;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    float: right;
+    margin-top: 10px;
+}
+
+form button[type="submit"]:hover {
+    background-color: #118ab2;
+}
+
+/* Projects section */
+
+
+/* Main Section */
+
+.main{
+    height: 100vh;
+}
+
+
+.main-body{
+    height: 85%;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+    overflow-x: auto;
+}
+
+
+
+/* Category */
+
+
+.category{
+    min-height: 300px;
+    height: auto;
+    background-color: #F9F9F9;
+    box-shadow: 1px 1px 1px 1px #CCC;
+    width: 280px;
+    border-radius: 5px;
+    margin: 0px 10px;
+    flex-shrink: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+
+}
+
+.cards-container{
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 10px;
+}
+
+.category-header{
+    padding: 0px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.category h3{
+    color: #984447;
+    padding: 5px;
+    font-size: 14px;
+}
+
+
+
+
+
+
+/* Task Cards */
+.task-card{
+    background-color: #ffffff;
+    box-shadow: 1px 1px 0px 1px #CCC;
+    width: 90%;
+    border-radius: 10px;
+    min-height: 50px;
+    padding: 10px;
+    margin: 5px auto;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.task-card:hover{
+    background-color: #EEE;
+    box-shadow: 1px 1px 0px 1px #AAA;
+
+}
+
+.task-card h4{
+    color: #2c1b07;
+    font-size: 13px;
+}
+
+.task-card p{
+    font-size: 15px;
+    transition: 0.6s;
+}
+
+
+.task-card img{
+    width: 40px;
+    border-radius: 50px;
+}
+.task-card input{
+    transform: scale(1.1);
+    margin-left: 10px;
+}
+
+
+.task-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+
+
+/* Custom scrollbar */
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #BBB;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #AAA; 
+
+
+  }
+
+
+/* For Responsiveness */
+
+@media screen and (max-width: 700px) {
+
+    .logo{
+        width: 60px;
+     }
+     nav ul{
+        margin-left: 1%;
+     }
+     nav ul li a{
+         font-size: 13px;
+         margin: 3px
+     }
+     .logout-button{
+        font-size: 13px;
+     }
+}
+

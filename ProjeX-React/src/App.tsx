@@ -1,14 +1,34 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import React, { useState } from "react";
+import Navbar from "./components/Navbar";
+import Router from "./router";
+import Footer from "./components/Footer";
 
 function App() {
-    const [count, setCount] = useState(0);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [token, setToken] = useState<string | null>(null);
+
+    const handleLoginOrRegister = (token: string) => {
+        setIsLoggedIn(true);
+        setToken(token);
+    };
+
+    const handleLogout = () => {
+        setIsLoggedIn(false);
+        setToken(null);
+    };
 
     return (
         <>
-            <p>hey</p>
+            <Navbar
+                isLoggedIn={isLoggedIn}
+                token={token}
+                onLogout={handleLogout}
+            />
+            <Router
+                onLogin={handleLoginOrRegister}
+                onRegister={handleLoginOrRegister}
+            />
+            <Footer />
         </>
     );
 }

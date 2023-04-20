@@ -1,8 +1,12 @@
-﻿namespace ProjeX_API.Dtos
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ProjeX_API.Dtos
 {
     public class UserLoginDto
     {
-        public string Username { get; set; }
+        [Required]
+        public string Email { get; set; }
+        [Required]
         public string Password { get; set; }
     }
 }

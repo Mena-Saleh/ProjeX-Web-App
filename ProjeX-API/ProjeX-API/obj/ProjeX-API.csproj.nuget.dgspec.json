@@ -54,6 +54,10 @@
               "target": "Package",
               "version": "[8.0.0-preview.3.23174.2, )"
             },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[8.0.0-preview.3.23174.2, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[8.0.0-preview.3.23174.2, )"

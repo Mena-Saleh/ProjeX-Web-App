@@ -10,5 +10,13 @@ namespace ProjeX_API.Data
         }
 
         public DbSet<User> Users { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            //Make a unique constraint for email
+            modelBuilder.Entity<User>()
+                .HasIndex(m => m.Email)
+                .IsUnique();
+        }
     }
 }
