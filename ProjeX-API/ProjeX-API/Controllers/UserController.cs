@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using ProjeX_API.Dtos;
 using ProjeX_API.DTOs;
 using ProjeX_API.Models;
@@ -52,12 +53,12 @@ namespace ProjeX_API.Controllers
             var user = _context.Users.FirstOrDefault(u => u.Email == userDto.Email);
             if (user == null)
             {
-                return BadRequest(new { message = "Username or password is incorrect" });
+                return BadRequest(new { message = "email or password is incorrect" });
             }
 
             if (!user.CheckPassword(userDto.Password))
             {
-                return BadRequest(new { message = "Username or password is incorrect" });
+                return BadRequest(new { message = "email or password is incorrect" });
             }
 
             // Generate a JWT token for the user
@@ -128,5 +129,63 @@ namespace ProjeX_API.Controllers
 
             return NoContent();
         }
+        [HttpGet("{id}/friends")]
+        public ActionResult<IEnumerable<User>> GetFriends(int id)
+        {
+            var friends = _context.UserFriends
+                .Include(uf => uf.Friend)
+                .Where(uf => uf.UserId == id)
+                .Select(uf => uf.Friend)
+                .ToList();
+
+            return friends;
+        }
+
+        [HttpPost("{id}/friends/{friendId}")]
+        public IActionResult AddFriend(int id, int friendId)
+        {
+            var user = _context.Users.FirstOrDefault(u => u.Id == id);
+            var friend = _context.Users.FirstOrDefault(u => u.Id == friendId);
+            if (user == null || friend == null)
+            {
+                return NotFound();
+            }
+
+            var userFriend = new UserFriend { UserId = id, FriendId = friendId };
+            var userFriendMutual = new UserFriend { UserId = friendId, FriendId = id };
+
+            _context.UserFriends.Add(userFriend);
+            _context.UserFriends.Add(userFriendMutual);
+            _context.SaveChanges();
+
+            return Ok();
+        }
+
+        [HttpDelete("{id}/friends/{friendId}")]
+        public IActionResult RemoveFriend(int id, int friendId)
+        {
+            var userFriend = _context.UserFriends.FirstOrDefault(uf => uf.UserId == id && uf.FriendId == friendId);
+            var userFriendMutual = _context.UserFriends.FirstOrDefault(uf => uf.UserId == friendId && uf.FriendId == id);
+
+            if (userFriend == null || userFriendMutual == null)
+            {
+                return NotFound();
+            }
+
+            _context.UserFriends.Remove(userFriend);
+            _context.UserFriends.Remove(userFriendMutual);
+            _context.SaveChanges();
+
+            return Ok();
+        }
+
+        [HttpGet("{userId}/friends/{friendId}/status")]
+        public ActionResult<bool> CheckFriendshipStatus(int userId, int friendId)
+        {
+            bool isFriend = _context.UserFriends.Any(uf => uf.UserId == userId && uf.FriendId == friendId);
+            return Ok(isFriend);
+        }
+
+
     }
 }

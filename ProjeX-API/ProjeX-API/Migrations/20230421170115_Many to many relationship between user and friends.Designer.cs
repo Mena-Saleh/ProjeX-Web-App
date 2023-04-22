@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjeX_API.Data;
 
@@ -10,9 +11,11 @@ using ProjeX_API.Data;
 namespace ProjeX_API.Migrations
 {
     [DbContext(typeof(ProjeXContext))]
-    partial class ProjeXContextModelSnapshot : ModelSnapshot
+    [Migration("20230421170115_Many to many relationship between user and friends")]
+    partial class Manytomanyrelationshipbetweenuserandfriends
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -53,52 +56,34 @@ namespace ProjeX_API.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("ProjeX_API.Models.UserFriend", b =>
+            modelBuilder.Entity("UserUser", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("FriendId")
+                    b.Property<int>("FriendsId")
                         .HasColumnType("int");
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
-
-                    b.HasIndex("FriendId");
+                    b.HasKey("FriendsId", "UserId");
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserFriends");
+                    b.ToTable("UserFriends", (string)null);
                 });
 
-            modelBuilder.Entity("ProjeX_API.Models.UserFriend", b =>
+            modelBuilder.Entity("UserUser", b =>
                 {
-                    b.HasOne("ProjeX_API.Models.User", "Friend")
+                    b.HasOne("ProjeX_API.Models.User", null)
                         .WithMany()
-                        .HasForeignKey("FriendId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired()
-                        .HasConstraintName("FK_UserFriend_Friend_User_Id");
-
-                    b.HasOne("ProjeX_API.Models.User", "User")
-                        .WithMany("Friends")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .HasForeignKey("FriendsId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Friend");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("ProjeX_API.Models.User", b =>
-                {
-                    b.Navigation("Friends");
+                    b.HasOne("ProjeX_API.Models.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.ClientCascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

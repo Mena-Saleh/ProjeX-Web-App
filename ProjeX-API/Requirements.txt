@@ -1,0 +1,41 @@
+Project Management System
+
+
+-->Entities/Models
+
+Users:
+Name
+Email
+password
+Friends (M)
+
+
+
+-->Project
+
+Name
+Description
+DateCreated
+DateDue
+Contributers (Users M)
+Categories (M)
+
+
+
+-->Category:
+Name
+Tasks (M)
+
+-->Task
+
+Name
+Description
+Code
+DateDue
+DateCreated
+AssignedTo (1 User)
+IsFinished
+
+
+
+-->Functionalities

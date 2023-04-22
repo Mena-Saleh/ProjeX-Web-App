@@ -16,9 +16,13 @@ const Navbar: React.FC<Props> = ({ isLoggedIn, token, onLogout }: Props) => {
         if (isLoggedIn && token) {
             return (
                 <>
-                    <button className="logout-button" onClick={handleLogout}>
+                    <Link
+                        className="logout-button"
+                        to="/"
+                        onClick={handleLogout}
+                    >
                         Logout
-                    </button>
+                    </Link>
                 </>
             );
         } else {
@@ -42,13 +46,15 @@ const Navbar: React.FC<Props> = ({ isLoggedIn, token, onLogout }: Props) => {
                     <li>
                         <Link to="/">Home</Link>
                     </li>
-                    <li>
-                        <Link to="/about">About</Link>
-                    </li>
                     {isLoggedIn && (
-                        <li>
-                            <Link to="/projects">Projects</Link>
-                        </li>
+                        <>
+                            <li>
+                                <Link to="/users">Users</Link>
+                            </li>
+                            <li>
+                                <Link to="/projects">Projects</Link>
+                            </li>
+                        </>
                     )}
                 </div>
                 {renderAuthButtons()}

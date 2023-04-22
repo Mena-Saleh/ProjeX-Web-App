@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Security.Cryptography;
@@ -19,6 +19,11 @@ namespace ProjeX_API.Models
         [Required]
         public byte[] PasswordSalt { get; set; }
 
+        public ICollection<UserFriend> Friends { get; set; }
+        public User()
+        {
+            Friends = new List<UserFriend>();
+        }
         public void SetPassword(string password)
         {
             using (var sha256 = SHA256.Create())
