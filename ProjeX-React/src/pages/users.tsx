@@ -33,8 +33,6 @@ function Users({ loggedInID }: Props) {
                             };
                         })
                 );
-
-                console.log(usersWithFriendStatus);
                 setUsers(usersWithFriendStatus);
             } catch (error) {
                 console.log(error);

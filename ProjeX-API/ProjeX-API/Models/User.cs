@@ -19,10 +19,13 @@ namespace ProjeX_API.Models
         [Required]
         public byte[] PasswordSalt { get; set; }
 
-        public ICollection<UserFriend> Friends { get; set; }
+        public ICollection<UserFriend>? Friends { get; set; }
+
+        public ICollection<Project>? Projects { get; set; }
         public User()
         {
             Friends = new List<UserFriend>();
+            Projects = new List<Project>();
         }
         public void SetPassword(string password)
         {

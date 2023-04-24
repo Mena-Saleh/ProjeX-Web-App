@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./pages/home";
 import Users from "./pages/users";
 import Projects from "./pages/projects";
@@ -13,11 +13,30 @@ interface Props {
 }
 
 function Router({ onLogin, onRegister, isLoggedIn, loggedInID }: Props) {
+    //Only accessible if user is logged in
+    const renderAuthorizedRoutes = (isLoggedIn: boolean) => {
+        if (isLoggedIn) {
+            return (
+                <>
+                    <Route
+                        path="/users"
+                        element={<Users loggedInID={loggedInID} />}
+                    />
+                    <Route
+                        path="/projects"
+                        element={<Projects loggedInID={loggedInID} />}
+                    />{" "}
+                </>
+            );
+        } else {
+            return <></>;
+        }
+    };
+
     return (
         <Routes>
             <Route path="/" element={<Home isLoggedIn={isLoggedIn} />} />
-            <Route path="/users" element={<Users loggedInID={loggedInID} />} />
-            <Route path="/projects" element={<Projects />} />
+            {renderAuthorizedRoutes(isLoggedIn)}
             <Route path="/login" element={<Login onLogin={onLogin} />} />
             <Route
                 path="/register"

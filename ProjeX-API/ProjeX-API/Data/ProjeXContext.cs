@@ -11,6 +11,8 @@ namespace ProjeX_API.Data
 
         public DbSet<User> Users { get; set; }
         public DbSet<UserFriend> UserFriends { get; set; }
+        public DbSet<Project> Projects { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

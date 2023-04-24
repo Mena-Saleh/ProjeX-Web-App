@@ -13,10 +13,6 @@ namespace ProjeX_API.DTOs
         [Required]
         public string Password { get; set; }
 
-        public UserDto()
-        {
-        }
-
         public UserDto(User user)
         {
             Id = user.Id;
