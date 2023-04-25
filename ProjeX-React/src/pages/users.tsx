@@ -74,7 +74,7 @@ function Users({ loggedInID }: Props) {
                     id={user.id}
                     username={user.username}
                     email={user.email}
-                    isFriend={user.isFriend}
+                    Status={user.isFriend}
                     onSelectCard={() =>
                         handleSelectCard(user.id, user.isFriend)
                     }

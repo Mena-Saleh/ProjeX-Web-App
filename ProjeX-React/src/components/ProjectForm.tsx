@@ -1,12 +1,14 @@
 import React, { useState, FormEvent } from "react";
 import env from "../utils/env";
+import ProjectType from "../types/Project";
 
 interface Props {
     loggedInID: string;
     onClose: () => void;
+    onAddProject: () => void;
 }
 
-const ProjectForm = ({ loggedInID, onClose }: Props) => {
+const ProjectForm = ({ loggedInID, onClose, onAddProject }: Props) => {
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [error, setError] = useState("");
@@ -27,6 +29,7 @@ const ProjectForm = ({ loggedInID, onClose }: Props) => {
             });
 
             if (response.ok) {
+                onAddProject();
                 onClose();
             } else {
                 setError("Error Creating Project");

@@ -76,7 +76,7 @@ namespace ProjeX_API.Controllers
 
         // PUT: project/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutProject(int id, Project project)
+        public async Task<IActionResult> UpdateProject(int id, Project project)
         {
             if (id != project.Id)
             {
@@ -145,17 +145,17 @@ namespace ProjeX_API.Controllers
         }
 
 
-        [HttpPost("user/{userId}/project/{projectId}")]
+        [HttpPost("{projectId}/user/{userId}")]
         public async Task<IActionResult> AddUserToProject(int userId, int projectId)
         {
-            var user = await _context.Users.FindAsync(userId);
+            var user = await _context.Users.Include(u => u.Projects).FirstOrDefaultAsync(u => u.Id == userId);
 
             if (user == null)
             {
                 return NotFound("User not found.");
             }
 
-            var project = await _context.Projects.FindAsync(projectId);
+            var project = await _context.Projects.Include(p => p.Users).FirstOrDefaultAsync(p => p.Id == projectId);
 
             if (project == null)
             {
@@ -181,6 +181,55 @@ namespace ProjeX_API.Controllers
             }
         }
 
+        [HttpDelete("{projectId}/user/{userId}")]
+        public async Task<IActionResult> RemoveUserFromProject(int userId, int projectId)
+        {
+            var user = await _context.Users.Include(u => u.Projects).FirstOrDefaultAsync(u => u.Id == userId);
+
+            if (user == null)
+            {
+                return NotFound("User not found.");
+            }
+
+            var project = await _context.Projects.Include(p => p.Users).FirstOrDefaultAsync(p => p.Id == projectId);
+
+            if (project == null)
+            {
+                return NotFound("Project not found.");
+            }
+
+            if (!user.Projects.Any(p => p.Id == project.Id) || !project.Users.Any(u => u.Id == user.Id))
+            {
+                return BadRequest("User is not a member of this project.");
+            }
+
+            project.Users.Remove(user);
+            user.Projects.Remove(project);
+
+            try
+            {
+                await _context.SaveChangesAsync();
+                return Ok("User removed from project successfully.");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"An error occurred while removing user from project: {ex.Message}");
+            }
+        }
+
+        [HttpGet("{projectId}/user/{userId}/membership")]
+        public ActionResult<bool> CheckMembershipStatus(int userId, int projectId)
+        {
+            var project = _context.Projects.Include(p => p.Users).FirstOrDefault(p => p.Id == projectId);
+
+            if (project == null)
+            {
+                return NotFound("Project not found.");
+            }
+
+            bool isMember = project.Users.Any(u => u.Id == userId);
+            return Ok(isMember);
+        }
 
     }
 }

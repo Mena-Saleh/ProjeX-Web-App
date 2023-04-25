@@ -3,6 +3,7 @@ import env from "../utils/env";
 import React, { useState, useEffect } from "react";
 import ProjectType from "../types/Project";
 import ProjectForm from "../components/ProjectForm";
+import FriendsForm from "../components/FriendsForm";
 
 interface Props {
     loggedInID: string;
@@ -11,33 +12,29 @@ interface Props {
 function Projects({ loggedInID }: Props) {
     const URL = env.VITE_API_URL;
     const [projects, setProjects] = useState<ProjectType[]>([]);
-    const [showPopup, setShowPopup] = useState(false);
-    const handleShowPopup = () => {
-        setShowPopup(true);
+    const [showCreatePopup, setShowCreatePopup] = useState(false);
+
+    const handleShowCreatePopup = () => {
+        setShowCreatePopup(true);
     };
 
-    const handleClosePopup = () => {
-        setShowPopup(false);
+    const handleCloseCreatePopup = () => {
+        setShowCreatePopup(false);
+    };
+
+    const fetchProjects = async () => {
+        try {
+            const response = await fetch(URL + `/projects/user/${loggedInID}`);
+            const data = await response.json();
+            setProjects(data);
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     useEffect(() => {
-        async function fetchProjects() {
-            try {
-                const response = await fetch(
-                    URL + `/projects/user/${loggedInID}`
-                );
-                const data = await response.json();
-                setProjects(data);
-            } catch (error) {
-                console.log(error);
-            }
-        }
         fetchProjects();
-    }, projects);
-
-    if (!projects) {
-        return <Project name=".." description="...." date="...." id="" />;
-    }
+    }, []);
 
     return (
         <section className="projects-page">
@@ -46,6 +43,8 @@ function Projects({ loggedInID }: Props) {
             <div className="projects-grid">
                 {projects.map((project) => (
                     <Project
+                        onDelete={fetchProjects}
+                        loggedInID={loggedInID}
                         key={project.id}
                         name={project.name}
                         description={project.description}
@@ -55,17 +54,18 @@ function Projects({ loggedInID }: Props) {
                 ))}
                 <div
                     className="project-card new-project"
-                    onClick={handleShowPopup}
+                    onClick={handleShowCreatePopup}
                 >
                     <button>New Project</button>
                 </div>
 
                 {/* Form the shows up on changing the state of showPopUp by clicking the button */}
-                {showPopup && (
+                {showCreatePopup && (
                     <ProjectForm
-                        onClose={handleClosePopup}
+                        onClose={handleCloseCreatePopup}
+                        onAddProject={fetchProjects}
                         loggedInID={loggedInID}
-                    ></ProjectForm>
+                    />
                 )}
             </div>
         </section>

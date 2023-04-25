@@ -4,6 +4,7 @@ interface User {
     email: string;
     friends: string[];
     isFriend: boolean;
+    isMember: boolean;
 }
 
 export default User;

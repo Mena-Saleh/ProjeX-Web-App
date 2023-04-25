@@ -362,6 +362,7 @@ form button[type="submit"]:hover {
 /* Pop up forms */
 
 .pop-up{
+    z-index: 2;
     position: fixed;
     top: 0;
     left: 0;
@@ -397,12 +398,28 @@ form button[type="submit"]:hover {
     border: none;
     display: flex;
     justify-content: space-between;
-    width: 50px;
+    width: 70px;
   }
 
-  
+  .project-members form{
+    width: 100%;
+}
 
-  .trash,.edit {
+
+  .project-members .user-card{
+        transform: scale(0.8);
+        width: 100%;
+
+    } 
+
+    .project-members .add-friend,.remove-friend{
+        margin: 10px;
+     }
+     .project-members .user-card p {
+        margin: 2px;
+     }
+
+  .trash,.edit,.user {
     color: #666;
     transition: 0.6s;
     cursor: pointer;
@@ -413,7 +430,7 @@ form button[type="submit"]:hover {
     color: #d9655a;
     animation: shake 0.7s;
   }
-  .edit:hover{
+  .edit:hover, .user:hover{
     transition: 0.6s;
     color: #5ed95a;
     animation: beat 0.7s;

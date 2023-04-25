@@ -22,17 +22,17 @@ namespace ProjeX_API.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<ActionResult<UserDto>> Register(UserDto userDto)
+        public async Task<IActionResult> Register(UserDto userDto)
         {
             if (_context.Users.Any(u => u.Email == userDto.Email))
             {
                 return BadRequest("Email already exists");
             }
 
-            var user = new User
+            var user = new User()
             {
                 Username = userDto.Username,
-                Email = userDto.Email
+                Email = userDto.Email,
             };
 
             user.SetPassword(userDto.Password);
