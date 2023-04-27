@@ -18,10 +18,12 @@ namespace ProjeX_API.Models
         public DateTime CreationDate { get; set; } = DateTime.UtcNow.Date;
 
         public ICollection<User>? Users { get; set; }
+        public ICollection<Category> Categories { get; set; }
 
         public Project()
         {
             Users = new List<User>();
+            Categories= new List<Category>();
         }
     }
 }

@@ -1,15 +1,21 @@
-*{
+* {
     margin: 0;
     padding: 0;
     font-family: 'Montserrat', sans-serif;
 }
 
-h1,h2,h3,h4,h5,h6{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: 'EB Garamond', serif;
 }
+
 /* Nav */
 
-nav{    
+nav {
     font-size: 15px;
     width: 100%;
     height: 50px;
@@ -21,48 +27,49 @@ nav{
 
 }
 
-nav ul{
+nav ul {
     margin-left: 20%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 70%;
 }
-nav ul li{
+
+nav ul li {
     display: inline;
 }
 
-nav ul li a{
+nav ul li a {
     color: #FFF;
     text-decoration: none;
     margin: 0 10px;
     transition: 0.5s;
 }
 
-nav ul li a:hover{
+nav ul li a:hover {
     color: #AAA;
 }
 
 
-.logo{
+.logo {
     margin-left: 20px;
     width: 100px;
 }
 
 
 
-.logout-button{
+.logout-button {
     text-decoration: none;
     font-size: 15px;
     border: none;
     padding: 5px;
     border-radius: 3px;
-    background-color:transparent;
+    background-color: transparent;
     color: #FFF;
     transition: 0.3s;
 }
 
-.logout-button:hover{
+.logout-button:hover {
     transition: 0.3;
     color: #ff4d4d;
 }
@@ -75,13 +82,13 @@ footer {
     justify-content: center;
     align-items: center;
     padding: 20px;
-  }
-  
-  .footer-icon {
+}
+
+.footer-icon {
     color: #984447;
     font-size: 20px;
     margin: 10px;
-  }
+}
 
 /* Home page Hero */
 
@@ -94,21 +101,25 @@ footer {
     align-items: center;
     text-align: center;
     padding: 0 20px;
-  }
-  .hero h1 {
+}
+
+.hero h1 {
     font-size: 4rem;
-    color:#2c1b07;
+    color: #2c1b07;
     font-weight: bold;
     margin-bottom: 20px;
-  }
-  .hero h1 span{
-   color:#d66d70
-  }
-  .hero p {
+}
+
+.hero h1 span {
+    color: #d66d70
+}
+
+.hero p {
     font-size: 1.5rem;
     margin-bottom: 30px;
-  }
-  .hero-button {
+}
+
+.hero-button {
     text-decoration: none;
     padding: 10px 20px;
     font-size: 1.2rem;
@@ -118,18 +129,20 @@ footer {
     color: #073B4C;
     cursor: pointer;
     transition: all 0.3s ease;
-  }
-  .hero-button:hover {
+}
+
+.hero-button:hover {
     background-color: #073B4C;
     color: #fff;
-  }
-  .hero-button:hover .no-style-link{
+}
+
+.hero-button:hover .no-style-link {
     color: #fff;
-  }
+}
 
 /* Login and Register forms */
 
-.login-register-container{
+.login-register-container {
     /* background-image: linear-gradient(rgba(6, 9, 30, 0.6),rgba(3, 9, 30, 0.8)),url(./public/background.jpg);
     background-position: center;
     background-size: cover; */
@@ -138,7 +151,7 @@ footer {
     align-items: center;
     height: 90vh;
 }
- 
+
 form {
     background-color: rgba(255, 255, 255, 0.5);
     width: 400px;
@@ -156,7 +169,9 @@ form label {
     font-weight: bold;
     color: #984447;
 }
-form input,textarea {
+
+form input,
+textarea {
     display: block;
     width: 100%;
     padding: 10px;
@@ -197,7 +212,7 @@ form button[type="submit"]:hover {
 
 /* Users section */
 
-.users-page{
+.users-page {
     min-height: 100vh;
     height: auto;
     background-color: #FFF;
@@ -207,9 +222,10 @@ form button[type="submit"]:hover {
     text-align: center;
     padding-top: 100px;
 }
+
 .users-page h1 {
     font-size: 4rem;
-    color:#2c1b07;
+    color: #2c1b07;
     font-weight: bold;
     margin-bottom: 20px;
 }
@@ -222,7 +238,7 @@ form button[type="submit"]:hover {
 
 
 
-.user-card{
+.user-card {
     background-color: #ffffff;
     box-shadow: 1px 1px 0px 1px #CCC;
     width: 80%;
@@ -236,35 +252,39 @@ form button[type="submit"]:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    text-align: left;;
+    text-align: left;
+    ;
 }
-.user-card:hover{
+
+.user-card:hover {
     background-color: #EEE;
     box-shadow: 1px 1px 0px 1px #AAA;
 
 }
 
-.add-friend{
+.add-friend {
     color: #11b259;
     transform: scale(1.3);
     margin-right: 10px;
     transition: 0.3s;
 }
-.remove-friend{
+
+.remove-friend {
     color: #c53a3a;
     transform: scale(1.3);
     margin-right: 10px;
     transition: 0.3s;
 }
 
-.add-friend:hover, .remove-friend:hover{
+.add-friend:hover,
+.remove-friend:hover {
     color: #073B4C;
 }
 
 
 
 
-.user-card p{
+.user-card p {
     font-size: 15px;
     transition: 0.6s;
 }
@@ -272,16 +292,17 @@ form button[type="submit"]:hover {
 /* Projects section */
 
 /* Projects page and project cards */
-.projects-page{
+.projects-page {
     min-height: 100vh;
     height: auto;
     background-color: #FFF;
     text-align: center;
     padding-top: 100px;
 }
+
 .projects-page h1 {
     font-size: 4rem;
-    color:#2c1b07;
+    color: #2c1b07;
     font-weight: bold;
     margin-bottom: 20px;
 }
@@ -293,7 +314,7 @@ form button[type="submit"]:hover {
     text-align: center;
 }
 
-.projects-grid{
+.projects-grid {
     padding: 20px;
     width: 90%;
     margin: 50px auto;
@@ -302,66 +323,72 @@ form button[type="submit"]:hover {
     row-gap: 50px;
     grid-template-columns: auto auto auto;
     justify-content: space-around;
-  }
-  
-  .project-card{
+}
+
+.project-card-link{
+    color: #222;
+    text-decoration: none;
+}
+.project-card {
     width: 340px;
     height: 220px;
     max-height: auto;
-    border:1px solid #073B4C;
+    border: 1px solid #073B4C;
     border-radius: 5px;
     cursor: pointer;
     position: relative;
     transition: 0.3s;
-    }
-    
-    .project-card:hover{
+}
+
+.project-card:hover {
     transition: 0.3s;
     transform: scale(105%);
     border-color: #e1aa6b;
     box-shadow: 1px 1px 10px 1px #e1aa6b;
-    }
+}
 
-    .project-card h3{
-        color: #5d3911;
-        font-weight: bold;
-        font-size: 1.3rem;
-    }
-    .project-card h3,p{
-        text-align: left;
-        padding: 10px;
-    }
+.project-card h3 {
+    color: #5d3911;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
 
-    .project-card p{
-        font-size: 16px;
-    }
+.project-card h3,
+p {
+    text-align: left;
+    padding: 10px;
+}
 
-    .project-card h6{
-        text-align: right;
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        padding: 10px;
-    }
+.project-card p {
+    font-size: 16px;
+}
+
+.project-card h6 {
+    text-align: right;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 10px;
+}
 
 
-.new-project{
+.new-project {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.new-project button{
-   border: none;
-   background-color: transparent;
-   font-size: 1.2rem;
-   cursor: pointer;
-   
+.new-project button {
+    border: none;
+    background-color: transparent;
+    font-size: 1.2rem;
+    cursor: pointer;
+
 }
 
 /* Pop up forms */
 
-.pop-up{
+.pop-up {
     z-index: 2;
     position: fixed;
     top: 0;
@@ -373,14 +400,15 @@ form button[type="submit"]:hover {
     justify-content: center;
     align-items: center;
 }
+
 .popup-inner {
     background-color: white;
     padding: 50px;
     border-radius: 5px;
     position: relative;
-  }
-  
-  .close-button {
+}
+
+.close-button {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -388,9 +416,9 @@ form button[type="submit"]:hover {
     border: none;
     background-color: transparent;
     cursor: pointer;
-  }
+}
 
-  .project-icon-group{
+.project-icon-group {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -399,52 +427,65 @@ form button[type="submit"]:hover {
     display: flex;
     justify-content: space-between;
     width: 70px;
-  }
+}
+.project-icon-group button{
+    border: none;
+    background-color: transparent;
+    transform: scale(1.2);
+}
 
-  .project-members form{
+.project-members form {
     width: 100%;
 }
 
 
-  .project-members .user-card{
-        transform: scale(0.8);
-        width: 100%;
+.project-members .user-card {
+    transform: scale(0.8);
+    width: 100%;
+}
 
-    } 
+.project-members .add-friend,
+.remove-friend {
+    margin: 10px;
+}
 
-    .project-members .add-friend,.remove-friend{
-        margin: 10px;
-     }
-     .project-members .user-card p {
-        margin: 2px;
-     }
+.project-members .user-card p {
+    margin: 2px;
+}
 
-  .trash,.edit,.user {
+.trash,
+.edit,
+.user {
     color: #666;
     transition: 0.6s;
     cursor: pointer;
-  }
-  
-  .trash:hover{
+}
+
+.trash:hover {
     transition: 0.6s;
     color: #d9655a;
     animation: shake 0.7s;
-  }
-  .edit:hover, .user:hover{
+}
+
+.edit:hover {
     transition: 0.6s;
     color: #5ed95a;
     animation: beat 0.7s;
-  }
-
+}
+.user:hover{
+    transition: 0.6s;
+    color: #e49e4e;
+    animation: beat 0.7s;
+}
 
 /* Main boards section */
 
-.main{
+.main {
     height: 100vh;
 }
 
 
-.main-body{
+.main-body {
     height: 85%;
     margin: 10px;
     padding: 20px;
@@ -458,7 +499,7 @@ form button[type="submit"]:hover {
 /* Category */
 
 
-.category{
+.category {
     min-height: 300px;
     height: auto;
     background-color: #F9F9F9;
@@ -474,7 +515,7 @@ form button[type="submit"]:hover {
 
 }
 
-.cards-container{
+.cards-container {
     height: auto;
     display: flex;
     flex-direction: column;
@@ -482,14 +523,14 @@ form button[type="submit"]:hover {
     padding: 10px;
 }
 
-.category-header{
+.category-header {
     padding: 0px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.category h3{
+.category h3 {
     color: #984447;
     padding: 5px;
     font-size: 14px;
@@ -500,7 +541,7 @@ form button[type="submit"]:hover {
 
 
 /* Task Cards */
-.task-card{
+.task-card {
     background-color: #ffffff;
     box-shadow: 1px 1px 0px 1px #CCC;
     width: 90%;
@@ -512,34 +553,41 @@ form button[type="submit"]:hover {
     cursor: pointer;
 }
 
-.task-card:hover{
+.task-card:hover {
     background-color: #EEE;
     box-shadow: 1px 1px 0px 1px #AAA;
 
 }
 
-.task-card h4{
+.task-card h4 {
     color: #2c1b07;
     font-size: 13px;
 }
 
-.task-card p{
+.task-card p {
     font-size: 15px;
     transition: 0.6s;
 }
 
 
-.task-card img{
-    width: 40px;
+.task-assigned-user {
+    width: 10px;
+    height: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:#FFF;
+    font-weight: bold;
     border-radius: 50px;
 }
-.task-card input{
+
+.task-card input {
     transform: scale(1.1);
     margin-left: 10px;
 }
 
 
-.task-header{
+.task-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -554,71 +602,79 @@ form button[type="submit"]:hover {
 ::-webkit-scrollbar {
     width: 10px;
     height: 10px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: #f1f1f1; 
-  }
-   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
     background: #BBB;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #AAA; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #AAA;
 
 
-  }
+}
 
 
 /* For Responsiveness */
 
 @media (max-width: 1200px) {
 
-    .projects-grid{
+    .projects-grid {
         grid-template-columns: auto auto;
-      }
+    }
 }
 
 
-@media (max-width: 750px)  {
+@media (max-width: 750px) {
 
-    .logo{
+    .logo {
         margin-left: 0px;
         width: 60px;
-     }
-     nav ul{
+    }
+
+    nav ul {
         margin-left: 1%;
-     }
-     nav ul li a{
-         font-size: 13px;
-         margin: 3px
-     }
-     .logout-button{
+    }
+
+    nav ul li a {
         font-size: 13px;
-     }
-     .user-card{
+        margin: 3px
+    }
+
+    .logout-button {
+        font-size: 13px;
+    }
+
+    .user-card {
         width: 70%;
         flex-direction: column;
         align-items: normal;
-     }
-     .add-friend, .remove-friend {
+    }
+
+    .add-friend,
+    .remove-friend {
         margin: 5px 0px 5px 90%;
-     }
-     .user-card p {
+    }
+
+    .user-card p {
         margin: 2px;
-     }
-     .projects-grid{
+    }
+
+    .projects-grid {
         grid-template-columns: auto;
-      }
-      
+    }
+
 }
 
-@media (max-width: 350px)  {
-    .projects-grid{
+@media (max-width: 350px) {
+    .projects-grid {
         transform: scale(0.7);
     }
 }
@@ -629,15 +685,30 @@ form button[type="submit"]:hover {
 
 
 @keyframes shake {
-    10% { transform:   rotate(-30deg); }
-    40% { transform:   rotate(30deg); }
-    70% { transform:   rotate(-30deg); }
-    100% { transform:  rotate(0deg); }
-  }
-  
+    10% {
+        transform: rotate(-30deg);
+    }
+
+    40% {
+        transform: rotate(30deg);
+    }
+
+    70% {
+        transform: rotate(-30deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
 
 @keyframes beat {
-    50% { transform:   scale(1.25); }
-    100% { transform:  scale(1); }
-  }
-  
+    50% {
+        transform: scale(1.25);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}

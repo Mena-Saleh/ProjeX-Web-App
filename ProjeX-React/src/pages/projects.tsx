@@ -50,7 +50,7 @@ function Projects({ loggedInID }: Props) {
                         description={project.description}
                         date={project.creationDate}
                         id={project.id.toString()}
-                    />
+                    ></Project>
                 ))}
                 <div
                     className="project-card new-project"

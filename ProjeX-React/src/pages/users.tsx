@@ -80,7 +80,6 @@ function Users({ loggedInID }: Props) {
                     }
                 />
             ))}
-
             <section />
         </section>
     );

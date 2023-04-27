@@ -4,6 +4,7 @@ import Users from "./pages/users";
 import Projects from "./pages/projects";
 import Login from "./pages/login";
 import Register from "./pages/register";
+import Boards from "./pages/boards";
 
 interface Props {
     onLogin: (token: string) => void;
@@ -25,7 +26,11 @@ function Router({ onLogin, onRegister, isLoggedIn, loggedInID }: Props) {
                     <Route
                         path="/projects"
                         element={<Projects loggedInID={loggedInID} />}
-                    />{" "}
+                    />
+                    <Route
+                        path="/boards/:id"
+                        element={<Boards loggedInID={loggedInID} />}
+                    />
                 </>
             );
         } else {

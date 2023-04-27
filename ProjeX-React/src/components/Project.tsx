@@ -1,8 +1,19 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEdit, faTrash, faUser } from "@fortawesome/free-solid-svg-icons";
+import {
+    faAngleUp,
+    faBoxOpen,
+    faCircleUp,
+    faDashboard,
+    faEdit,
+    faExpand,
+    faPlaneUp,
+    faTrash,
+    faUser,
+} from "@fortawesome/free-solid-svg-icons";
 import React, { useState, useEffect } from "react";
 import FriendsForm from "./FriendsForm";
 import env from "../utils/env";
+import { Link } from "react-router-dom";
 
 interface Props {
     loggedInID: string;
@@ -23,7 +34,10 @@ const Project = ({
 }: Props) => {
     const URL = env.VITE_API_URL;
     const [showUsersPopup, setShowUsersPopup] = useState(false);
-    const handleShowUsersPopup = () => {
+    const handleShowUsersPopup = (
+        event: React.MouseEvent<HTMLButtonElement>
+    ) => {
+        event.preventDefault();
         setShowUsersPopup(true);
     };
 
@@ -31,7 +45,8 @@ const Project = ({
         setShowUsersPopup(false);
     };
 
-    const handleDelete = async () => {
+    const handleDelete = async (event: React.MouseEvent<HTMLButtonElement>) => {
+        event.preventDefault();
         const response = await fetch(URL + `/Projects/${id}`, {
             method: "DELETE",
         }).catch((error) => {
@@ -43,24 +58,24 @@ const Project = ({
 
     return (
         <>
-            <div className="project-card">
-                <div className="project-icon-group">
-                    <FontAwesomeIcon
-                        className="user"
-                        icon={faUser}
-                        onClick={handleShowUsersPopup}
-                    />
-                    <FontAwesomeIcon className="edit" icon={faEdit} />
-                    <FontAwesomeIcon
-                        className="trash"
-                        icon={faTrash}
-                        onClick={handleDelete}
-                    />
-                </div>
-                <h3>{name}</h3>
-                <p>{description}</p>
-                <h6>{date}</h6>
-            </div>
+            <Link className="project-card-link" to={`/boards/${id}`}>
+                <div className="project-card">
+                    <div className="project-icon-group">
+                        <button onClick={handleShowUsersPopup}>
+                            <FontAwesomeIcon className="user" icon={faUser} />
+                        </button>
+                        <button>
+                            <FontAwesomeIcon className="edit" icon={faEdit} />
+                        </button>
+                        <button onClick={handleDelete}>
+                            <FontAwesomeIcon className="trash" icon={faTrash} />
+                        </button>
+                    </div>
+                    <h3>{name}</h3>
+                    <p>{description}</p>
+                    <h6>{date}</h6>
+                </div>{" "}
+            </Link>
             {showUsersPopup && (
                 <FriendsForm
                     projectId={id}

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjeX_API.Data;
 
@@ -11,9 +12,11 @@ using ProjeX_API.Data;
 namespace ProjeX_API.Migrations
 {
     [DbContext(typeof(ProjeXContext))]
-    partial class ProjeXContextModelSnapshot : ModelSnapshot
+    [Migration("20230427181719_Categories and tasks models tuning")]
+    partial class Categoriesandtasksmodelstuning
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

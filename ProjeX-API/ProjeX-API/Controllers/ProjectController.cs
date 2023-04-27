@@ -30,9 +30,10 @@ namespace ProjeX_API.Controllers
 
         // GET: project/5
         [HttpGet("{id}")]
+        // With project details, categories and tasks
         public async Task<ActionResult<Project>> GetProject(int id)
         {
-            var project = await _context.Projects.FindAsync(id);
+            var project = await _context.Projects.Include(p => p.Categories).ThenInclude(c => c.Tasks).FirstOrDefaultAsync(p => p.Id == id);
 
             if (project == null)
             {
