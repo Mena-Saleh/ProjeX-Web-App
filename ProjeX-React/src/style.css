@@ -342,9 +342,8 @@ form button[type="submit"]:hover {
 
 .project-card:hover {
     transition: 0.3s;
-    transform: scale(105%);
-    border-color: #e1aa6b;
-    box-shadow: 1px 1px 10px 1px #e1aa6b;
+    transform: scale(101%);
+    box-shadow: 1px 1px 5px 1px #073B4C;
 }
 
 .project-card h3 {
@@ -686,15 +685,15 @@ p {
 
 @keyframes shake {
     10% {
-        transform: rotate(-30deg);
+        transform: rotate(-20deg);
     }
 
     40% {
-        transform: rotate(30deg);
+        transform: rotate(20deg);
     }
 
     70% {
-        transform: rotate(-30deg);
+        transform: rotate(-20deg);
     }
 
     100% {
@@ -705,7 +704,7 @@ p {
 
 @keyframes beat {
     50% {
-        transform: scale(1.25);
+        transform: scale(1.2);
     }
 
     100% {

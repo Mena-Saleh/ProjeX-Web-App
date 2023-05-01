@@ -7,6 +7,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Task = ProjeX_API.Models.Task;
+
 
 namespace ProjeX_API.Controllers
 {
@@ -230,6 +232,129 @@ namespace ProjeX_API.Controllers
 
             bool isMember = project.Users.Any(u => u.Id == userId);
             return Ok(isMember);
+        }
+
+        [HttpPost("{projectId}/categories")]
+        public IActionResult CreateCategoryInProject(int projectId, Category category)
+        {
+            var project = _context.Projects.FirstOrDefault(p => p.Id == projectId);
+
+            if (project == null)
+            {
+                return NotFound();
+            }
+
+            project.Categories.Add(category);
+
+            return Ok("Category created successfully.");
+        }
+
+        [HttpPut("{projectId}/categories/{categoryId}")]
+        public IActionResult UpdateCategoryInProject(int projectId, int categoryId, [FromBody] Category updatedCategory)
+        {
+            var project = _context.Projects.FirstOrDefault(p => p.Id == projectId);
+
+            if (project == null)
+            {
+                return NotFound();
+            }
+
+            var category = project.Categories.FirstOrDefault(c => c.Id == categoryId);
+
+            if (category == null)
+            {
+                return NotFound();
+            }
+
+            category.Name = updatedCategory.Name;
+
+            return NoContent();
+        }
+
+        [HttpDelete("{projectId}/categories/{categoryId}")]
+        public IActionResult DeleteCategoryFromProject(int projectId, int categoryId)
+        {
+            var project = _context.Projects.FirstOrDefault(p => p.Id == projectId);
+
+            if (project == null)
+            {
+                return NotFound();
+            }
+
+            var category = project.Categories.FirstOrDefault(c => c.Id == categoryId);
+
+            if (category == null)
+            {
+                return NotFound();
+            }
+
+            project.Categories.Remove(category);
+
+            return NoContent();
+        }
+
+        [HttpPost("/categories/{categoryId}")]
+        public ActionResult CreateTaskInCategory(int categoryId, Task task)
+        {
+            var category = _context.Categories.FirstOrDefault(c => c.Id == categoryId);
+            if (category == null)
+            {
+                return NotFound();
+            }
+
+            category.Tasks.Add(task);
+            _context.SaveChanges();
+
+            return Ok("Task added Successfully");
+        }
+
+        [HttpPut("categories/{categoryId}/tasks/{taskId}")]
+        public IActionResult UpdateTaskInCategory(int categoryId, int taskId, [FromBody] Task updatedTask)
+        {
+            var category = _context.Categories.SingleOrDefault(c => c.Id == categoryId);
+
+            if (category == null)
+            {
+                return NotFound();
+            }
+
+            var task = category.Tasks.SingleOrDefault(t => t.Id == taskId);
+
+            if (task == null)
+            {
+                return NotFound();
+            }
+
+            task.Name = updatedTask.Name;
+            task.Description = updatedTask.Description;
+            task.DueDate = updatedTask.DueDate;
+
+            _context.SaveChanges();
+
+            return Ok(task);
+        }
+
+        [HttpDelete("categories/{categoryId}/tasks/{taskId}")]
+        public IActionResult DeleteTaskFromCategory(int categoryId, int taskId)
+        {
+            var category = _context.Categories.SingleOrDefault(c => c.Id == categoryId);
+
+            if (category == null)
+            {
+                return NotFound();
+            }
+
+            var task = category.Tasks.SingleOrDefault(t => t.Id == taskId);
+
+            if (task == null)
+            {
+                return NotFound();
+            }
+
+            category.Tasks.Remove(task);
+            _context.SaveChanges();
+
+            return NoContent();
         }
 
     }

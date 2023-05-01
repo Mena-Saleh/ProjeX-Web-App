@@ -13,5 +13,7 @@ namespace ProjeX_API.Models
         public DateTime CreationDate { get; set; } = DateTime.UtcNow.Date;
         public DateTime DueDate { get; set; }
         public bool isFinished { get; set; }
+
+
     }
 }
