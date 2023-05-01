@@ -1,11 +1,11 @@
 import User from "./User";
 
 interface Task {
-    id: string;
+    id?: string;
     name: string;
     isFinished: boolean;
     description: string;
-    assignedTo: User;
+    assignedToId?: string;
     assignedToName: string;
     creationDate: string;
     dueDate: string;

@@ -3,6 +3,7 @@ import env from "../utils/env";
 import ProjectType from "../types/Project";
 import React, { useState, useEffect } from "react";
 import Category from "../components/Category";
+import CategoryForm from "../components/CategoryForm";
 
 interface Props {
     loggedInID: string;
@@ -11,7 +12,19 @@ interface Props {
 function Boards({ loggedInID }: Props) {
     const { id } = useParams<{ id: string }>();
     const [project, setProject] = useState<ProjectType | undefined>(undefined);
+    const [showNewCategoryPopup, setShowNewCategoryPopup] = useState(false);
     const URL = env.VITE_API_URL;
+
+    const handleShowNewCategoryPopup = (
+        event: React.MouseEvent<HTMLButtonElement>
+    ) => {
+        event.preventDefault();
+        setShowNewCategoryPopup(true);
+    };
+
+    const handleCloseNewCategoryPopup = () => {
+        setShowNewCategoryPopup(false);
+    };
 
     const fetchProject = async () => {
         try {
@@ -37,8 +50,23 @@ function Boards({ loggedInID }: Props) {
                             id={category.id}
                             name={category.name}
                             tasks={category.tasks}
+                            projectId={id ? id : "-1"}
+                            fetchProject={fetchProject}
                         ></Category>
                     ))}
+
+                <div className="category new-category">
+                    <button onClick={handleShowNewCategoryPopup}>
+                        New Category
+                    </button>
+                </div>
+                {showNewCategoryPopup && (
+                    <CategoryForm
+                        projectId={id ? id : "-1"}
+                        onAddCategory={fetchProject}
+                        onClose={handleCloseNewCategoryPopup}
+                    ></CategoryForm>
+                )}
             </div>
         </div>
     );

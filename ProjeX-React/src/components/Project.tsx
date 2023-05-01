@@ -1,19 +1,10 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-    faAngleUp,
-    faBoxOpen,
-    faCircleUp,
-    faDashboard,
-    faEdit,
-    faExpand,
-    faPlaneUp,
-    faTrash,
-    faUser,
-} from "@fortawesome/free-solid-svg-icons";
+import { faEdit, faTrash, faUser } from "@fortawesome/free-solid-svg-icons";
 import React, { useState, useEffect } from "react";
 import FriendsForm from "./FriendsForm";
 import env from "../utils/env";
 import { Link } from "react-router-dom";
+import dateFormatter from "../utils/dateFormatter";
 
 interface Props {
     loggedInID: string;
@@ -73,7 +64,7 @@ const Project = ({
                     </div>
                     <h3>{name}</h3>
                     <p>{description}</p>
-                    <h6>{date}</h6>
+                    <h6>{dateFormatter(date)}</h6>
                 </div>{" "}
             </Link>
             {showUsersPopup && (

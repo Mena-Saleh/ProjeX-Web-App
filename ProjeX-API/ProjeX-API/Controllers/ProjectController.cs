@@ -27,7 +27,7 @@ namespace ProjeX_API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Project>>> GetProjects()
         {
-            return await _context.Projects.ToListAsync();
+            return Ok(await _context.Projects.ToListAsync());
         }
 
         // GET: project/5
@@ -42,7 +42,7 @@ namespace ProjeX_API.Controllers
                 return NotFound();
             }
 
-            return project;
+            return Ok(project);
         }
 
         // POST: project
@@ -184,6 +184,21 @@ namespace ProjeX_API.Controllers
             }
         }
 
+
+        [HttpGet("{projectId}/users")]
+        public async Task<IActionResult> GetProjectUsers(int projectId) {
+
+            var project = await _context.Projects.Include(p => p.Users).FirstOrDefaultAsync(p => p.Id == projectId);
+
+            if (project == null)
+            {
+                return NotFound("Project not found.");
+            }
+            var userDtos = project.Users.Select(u => new ProjectUserDto(u)).ToList();
+            return Ok(userDtos.ToList());
+
+        }
+
         [HttpDelete("{projectId}/user/{userId}")]
         public async Task<IActionResult> RemoveUserFromProject(int userId, int projectId)
         {
@@ -235,24 +250,31 @@ namespace ProjeX_API.Controllers
         }
 
         [HttpPost("{projectId}/categories")]
-        public IActionResult CreateCategoryInProject(int projectId, Category category)
+        public async Task<IActionResult> AddCategoryToProject(int projectId, CategoryCreateDto categoryDto)
         {
-            var project = _context.Projects.FirstOrDefault(p => p.Id == projectId);
+            var project = await _context.Projects.SingleOrDefaultAsync(p => p.Id == projectId);
 
             if (project == null)
             {
                 return NotFound();
             }
 
+            Category category = new Category
+            {
+                Name = categoryDto.Name
+            };
+           
+
             project.Categories.Add(category);
+            await _context.SaveChangesAsync();
 
             return Ok("Category created successfully.");
         }
 
         [HttpPut("{projectId}/categories/{categoryId}")]
-        public IActionResult UpdateCategoryInProject(int projectId, int categoryId, [FromBody] Category updatedCategory)
+        public async Task<IActionResult> UpdateCategoryInProject(int projectId, int categoryId, [FromBody] Category updatedCategory)
         {
-            var project = _context.Projects.FirstOrDefault(p => p.Id == projectId);
+            var project = await _context.Projects.FirstOrDefaultAsync(p => p.Id == projectId);
 
             if (project == null)
             {
@@ -268,13 +290,15 @@ namespace ProjeX_API.Controllers
 
             category.Name = updatedCategory.Name;
 
+            await _context.SaveChangesAsync();
+
             return NoContent();
         }
 
         [HttpDelete("{projectId}/categories/{categoryId}")]
-        public IActionResult DeleteCategoryFromProject(int projectId, int categoryId)
+        public async Task<IActionResult> DeleteCategoryFromProject(int projectId, int categoryId)
         {
-            var project = _context.Projects.FirstOrDefault(p => p.Id == projectId);
+            var project = await _context.Projects.FirstOrDefaultAsync(p => p.Id == projectId);
 
             if (project == null)
             {
@@ -290,28 +314,32 @@ namespace ProjeX_API.Controllers
 
             project.Categories.Remove(category);
 
+            await _context.SaveChangesAsync();
+
             return NoContent();
         }
 
-        [HttpPost("/categories/{categoryId}")]
-        public ActionResult CreateTaskInCategory(int categoryId, Task task)
+        [HttpPost("categories/{categoryId}")]
+        public async Task<ActionResult> AddTaskToCategory(int categoryId, Task task)
         {
-            var category = _context.Categories.FirstOrDefault(c => c.Id == categoryId);
+            var category = await _context.Categories.FirstOrDefaultAsync(c => c.Id == categoryId);
+
             if (category == null)
             {
                 return NotFound();
             }
 
             category.Tasks.Add(task);
-            _context.SaveChanges();
+
+            await _context.SaveChangesAsync();
 
             return Ok("Task added Successfully");
         }
 
         [HttpPut("categories/{categoryId}/tasks/{taskId}")]
-        public IActionResult UpdateTaskInCategory(int categoryId, int taskId, [FromBody] Task updatedTask)
+        public async Task<IActionResult> UpdateTaskInCategory(int categoryId, int taskId, [FromBody] Task updatedTask)
         {
-            var category = _context.Categories.SingleOrDefault(c => c.Id == categoryId);
+            var category = await _context.Categories.SingleOrDefaultAsync(c => c.Id == categoryId);
 
             if (category == null)
             {
@@ -329,15 +357,15 @@ namespace ProjeX_API.Controllers
             task.Description = updatedTask.Description;
             task.DueDate = updatedTask.DueDate;
 
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
 
             return Ok(task);
         }
 
         [HttpDelete("categories/{categoryId}/tasks/{taskId}")]
-        public IActionResult DeleteTaskFromCategory(int categoryId, int taskId)
+        public async Task<IActionResult> DeleteTaskFromCategory(int categoryId, int taskId)
         {
-            var category = _context.Categories.SingleOrDefault(c => c.Id == categoryId);
+            var category = await _context.Categories.SingleOrDefaultAsync(c => c.Id == categoryId);
 
             if (category == null)
             {
@@ -352,7 +380,8 @@ namespace ProjeX_API.Controllers
             }
 
             category.Tasks.Remove(task);
-            _context.SaveChanges();
+
+            await _context.SaveChangesAsync();
 
             return NoContent();
         }

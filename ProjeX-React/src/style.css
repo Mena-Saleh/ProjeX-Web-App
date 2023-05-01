@@ -171,7 +171,7 @@ form label {
 }
 
 form input,
-textarea {
+textarea, select {
     display: block;
     width: 100%;
     padding: 10px;
@@ -181,6 +181,10 @@ textarea {
     border: 1px solid #073B4C;
     background-color: #E8F0FE;
     color: #2c1b07;
+}
+
+select{
+    width: 105%;
 }
 
 form .error {
@@ -535,7 +539,22 @@ p {
     font-size: 14px;
 }
 
-
+.new-category{
+    height: 50%;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.new-category button{
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    font-size: 1rem;
+    padding: 100px 0;
+}
+.new-category:hover{
+    background-color: #EEE;
+    box-shadow: 1px 1px 3px 1px #AAA;
+}
 
 
 
@@ -581,7 +600,8 @@ p {
 }
 
 .task-card input {
-    transform: scale(1.1);
+    transform: scale(1.2);
+    cursor: pointer;
     margin-left: 10px;
 }
 
@@ -592,6 +612,14 @@ p {
     justify-content: space-between;
     padding: 10px;
 }
+
+
+.new-task-card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 
 
 
