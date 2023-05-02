@@ -9,7 +9,7 @@ namespace ProjeX_API.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public int AssignedToId { get; set; }
-        public string AssignedToName { get; set; }
+        public string AssignedToName { get; set; }  
         public DateTime CreationDate { get; set; } = DateTime.UtcNow.Date;
         public DateTime DueDate { get; set; }
         public bool isFinished { get; set; }

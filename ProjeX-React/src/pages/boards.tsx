@@ -41,8 +41,8 @@ function Boards({ loggedInID }: Props) {
     }, []);
 
     return (
-        <div className="main">
-            <div className="main-body">
+        <div className="boards">
+            <div className="boards-body">
                 {project &&
                     project.categories.map((category) => (
                         <Category

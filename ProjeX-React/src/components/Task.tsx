@@ -2,13 +2,17 @@ import TaskType from "../types/Task";
 import React, { useState, useEffect } from "react";
 import TaskDetailsForm from "./TaskDetailsForm";
 import generateRandomColor from "../utils/randomColorGenerator";
-
+import env from "../utils/env";
 interface Props {
     task: TaskType;
 }
 const Task = ({ task }: Props) => {
+    const URL = env.VITE_API_URL;
     const [showDetailsPopup, setShowDetailsPopup] = useState(false);
-    const handleOnCheck = (event: React.ChangeEvent<HTMLInputElement>) => {};
+    const handleOnCheck = (event: React.ChangeEvent<HTMLInputElement>) => {
+        console.log(event.target.checked);
+        changeTaskStatus(event.target.checked);
+    };
     // Get random color for each name card according to first letter of the name.
 
     const handleShowDetailsPopup = () => {
@@ -17,6 +21,15 @@ const Task = ({ task }: Props) => {
 
     const handleCloseDetailsPopup = () => {
         setShowDetailsPopup(false);
+    };
+
+    const changeTaskStatus = async (status: boolean) => {
+        const response = await fetch(
+            `${URL}/projects/tasks/${task.id}/${status}`,
+            {
+                method: "PUT",
+            }
+        );
     };
 
     return (
