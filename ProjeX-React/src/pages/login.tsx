@@ -1,5 +1,5 @@
 import React, { useState, FormEvent } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import env from "../utils/env";
 
 interface Props {
@@ -63,6 +63,12 @@ const Login: React.FC<Props> = ({ onLogin }: Props) => {
                 {error && <div className="error">{error}</div>}
 
                 <button type="submit">Login</button>
+                <p>
+                    Don't have an account?{" "}
+                    <span>
+                        <Link to="/register">Register</Link>
+                    </span>
+                </p>
             </form>
         </div>
     );

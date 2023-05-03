@@ -105,7 +105,7 @@ namespace ProjeX_API.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProject(int id)
         {
-            var project = await _context.Projects.FindAsync(id);
+            var project = await _context.Projects.Include(p => p.Categories).ThenInclude(c => c.Tasks).FirstOrDefaultAsync(p => p.Id == id);
             if (project == null)
             {
                 return NotFound();

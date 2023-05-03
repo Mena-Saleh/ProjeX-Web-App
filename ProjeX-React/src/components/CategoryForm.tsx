@@ -18,7 +18,6 @@ const CategoryForm = ({ projectId, onAddCategory, onClose }: Props) => {
         setError("");
 
         try {
-            // Send email, username, and password to server
             const response = await fetch(
                 `${URL}/projects/${projectId}/categories`,
                 {

@@ -103,7 +103,11 @@ const TaskForm = ({ ProjectId, CategoryId, onAddTask, onClose }: Props) => {
                     onChange={(event) => setDueDate(event.target.value)}
                 ></input>
                 <label htmlFor="assigned to">Assigned to</label>
-                <select value={selectedUserId} onChange={handleSelectChange}>
+                <select
+                    value={selectedUserId}
+                    onChange={handleSelectChange}
+                    required
+                >
                     <option value="">Select a user</option>
                     {users.map((user) => (
                         <option key={user.id} value={user.id}>

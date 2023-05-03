@@ -55,9 +55,9 @@ const Project = ({
                         <button onClick={handleShowUsersPopup}>
                             <FontAwesomeIcon className="user" icon={faUser} />
                         </button>
-                        <button>
+                        {/* <button>
                             <FontAwesomeIcon className="edit" icon={faEdit} />
-                        </button>
+                        </button> */}
                         <button onClick={handleDelete}>
                             <FontAwesomeIcon className="trash" icon={faTrash} />
                         </button>

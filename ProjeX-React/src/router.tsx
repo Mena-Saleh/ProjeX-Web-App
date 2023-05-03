@@ -47,6 +47,7 @@ function Router({ onLogin, onRegister, isLoggedIn, loggedInID }: Props) {
                 path="/register"
                 element={<Register onRegister={onRegister} />}
             />
+            <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
     );
 }

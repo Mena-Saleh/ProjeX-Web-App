@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus, faX } from "@fortawesome/free-solid-svg-icons";
 import UserCard from "../components/UserCard";
 import User from "../types/User";
 import env from "../utils/env";
@@ -68,18 +70,21 @@ function Users({ loggedInID }: Props) {
                 Add or remove users to collaborate on your projects (friend
                 requests are not available as of now)
             </h2>
-            {users.map((user) => (
-                <UserCard
-                    key={user.id}
-                    id={user.id}
-                    username={user.username}
-                    email={user.email}
-                    Status={user.isFriend}
-                    onSelectCard={() =>
-                        handleSelectCard(user.id, user.isFriend)
-                    }
-                />
-            ))}
+        
+            <div className="cards-grid">
+                {users.map((user) => (
+                    <UserCard
+                        key={user.id}
+                        id={user.id}
+                        username={user.username}
+                        email={user.email}
+                        Status={user.isFriend}
+                        onSelectCard={() =>
+                            handleSelectCard(user.id, user.isFriend)
+                        }
+                    />
+                ))}
+            </div>
             <section />
         </section>
     );

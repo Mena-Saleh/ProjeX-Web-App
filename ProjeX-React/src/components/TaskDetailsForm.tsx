@@ -3,13 +3,16 @@ import User from "../types/User";
 import UserCard from "./UserCard";
 import Task from "../types/Task";
 import dateFormatter from "../utils/dateFormatter";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEdit, faTrash, faUser } from "@fortawesome/free-solid-svg-icons";
 
 interface Props {
-    Task: Task;
+    task: Task;
     onClose: () => void;
+    onDelete: () => void;
 }
 
-const TaskDetailsForm = ({ Task, onClose }: Props) => {
+const TaskDetailsForm = ({ task: Task, onClose, onDelete }: Props) => {
     const [error, setError] = useState("");
     const showDetailsPopup = () => {};
 
@@ -61,6 +64,12 @@ const TaskDetailsForm = ({ Task, onClose }: Props) => {
                     id="assignedToName"
                     value={dateFormatter(Task.dueDate)}
                 />
+                {/* <button onClick={onDelete}>
+                    <FontAwesomeIcon
+                        className="trash task-delete"
+                        icon={faTrash}
+                    />
+                </button> */}
             </form>
         </div>
     );

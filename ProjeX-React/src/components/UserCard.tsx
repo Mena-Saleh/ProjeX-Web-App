@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faX } from "@fortawesome/free-solid-svg-icons";
+import Profile from "./Profile";
 
 interface Props {
     username: string;
@@ -26,7 +27,10 @@ const UserCard = ({
 
     return (
         <div className="user-card" onClick={() => onSelectCard(id, !isFriend)}>
-            <p>{username}</p>
+            <div>
+                <Profile name={username}></Profile>
+                <p>{username}</p>
+            </div>
             <p>{email}</p>
             {displayIcons()}
         </div>

@@ -3,17 +3,28 @@ import React, { useState, useEffect } from "react";
 import TaskDetailsForm from "./TaskDetailsForm";
 import generateRandomColor from "../utils/randomColorGenerator";
 import env from "../utils/env";
+import Profile from "./Profile";
 interface Props {
     task: TaskType;
+    fetchProject: () => void;
 }
-const Task = ({ task }: Props) => {
+const Task = ({ task, fetchProject }: Props) => {
     const URL = env.VITE_API_URL;
     const [showDetailsPopup, setShowDetailsPopup] = useState(false);
     const handleOnCheck = (event: React.ChangeEvent<HTMLInputElement>) => {
         console.log(event.target.checked);
         changeTaskStatus(event.target.checked);
     };
-    // Get random color for each name card according to first letter of the name.
+
+    const handleDelete = async () => {
+        // const response = await fetch(URL + `/Projects//tasks${task.id}`, {
+        //     method: "DELETE",
+        // }).catch((error) => {
+        //     console.log(error);
+        // });
+        // handleCloseDetailsPopup();
+        // fetchProject();
+    };
 
     const handleShowDetailsPopup = () => {
         setShowDetailsPopup(true);
@@ -48,21 +59,13 @@ const Task = ({ task }: Props) => {
                             event.stopPropagation();
                         }}
                     ></input>
-                    <p
-                        className="task-assigned-user"
-                        style={{
-                            backgroundColor: generateRandomColor(
-                                task.assignedToName[0]
-                            ),
-                        }}
-                    >
-                        {task.assignedToName[0]}
-                    </p>
+                    <Profile name={task.assignedToName}></Profile>
                 </div>
             </div>
             {showDetailsPopup && (
                 <TaskDetailsForm
-                    Task={task}
+                    onDelete={handleDelete}
+                    task={task}
                     onClose={handleCloseDetailsPopup}
                 ></TaskDetailsForm>
             )}

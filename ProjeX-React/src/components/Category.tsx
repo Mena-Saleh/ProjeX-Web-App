@@ -27,7 +27,11 @@ const Category = ({ projectId, id, name, tasks, fetchProject }: Props) => {
             </div>
             <div className="cards-container">
                 {tasks.map((task) => (
-                    <Task key={task.id} task={task} />
+                    <Task
+                        key={task.id}
+                        task={task}
+                        fetchProject={fetchProject}
+                    />
                 ))}
                 <div
                     className="task-card new-task-card"

@@ -1,5 +1,5 @@
 import React, { useState, FormEvent } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import env from "../utils/env";
 
 interface Props {
@@ -93,6 +93,12 @@ const Register: React.FC<Props> = ({ onRegister }: Props) => {
                 {error && <div className="error">{error}</div>}
 
                 <button type="submit">Register</button>
+                <p>
+                    Already have an account?{" "}
+                    <span>
+                        <Link to="/login">Login</Link>
+                    </span>
+                </p>
             </form>
         </div>
     );

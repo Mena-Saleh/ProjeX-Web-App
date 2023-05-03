@@ -40,7 +40,7 @@ function Projects({ loggedInID }: Props) {
         <section className="projects-page">
             <h1>Projects</h1>
             <p>Here you can manage and navigate your projects</p>
-            <div className="projects-grid">
+            <div className="cards-grid">
                 {projects.map((project) => (
                     <Project
                         onDelete={fetchProjects}
