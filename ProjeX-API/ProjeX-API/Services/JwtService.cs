@@ -6,27 +6,18 @@ using System.Security.Cryptography;
 using System.Text;
 using DotNetEnv;
 
-// Load environment variables from .env file
-
 namespace ProjeX_API.Services
 {
     public static class JwtService
     {
-
-        private static string SecretKey = Environment.GetEnvironmentVariable("TOKEN_SECRET_KEY") == null ? "ThisIsATestOnlySecretKey,YouShouldMakeAStrongKeyAndHaveItAsAnEnvironmentVariable" : Environment.GetEnvironmentVariable("TOKEN_SECRET_KEY");
         private static int TokenExpiryInMinutes = 300; // Set token expiry time to 300 minutes
 
         public static string GenerateToken(int userId)
         {
             Env.Load();
+            var secretKey = Environment.GetEnvironmentVariable("TOKEN_SECRET_KEY");
             var tokenHandler = new JwtSecurityTokenHandler();
-            var key = new byte[64];
-
-            // Generate a random key
-            using (var rng = new RNGCryptoServiceProvider())
-            {
-                rng.GetBytes(key);
-            }
+            var key = Encoding.ASCII.GetBytes(secretKey);
 
             var tokenDescriptor = new SecurityTokenDescriptor
             {

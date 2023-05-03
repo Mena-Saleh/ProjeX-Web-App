@@ -1,8 +1,8 @@
 interface APIToken {
     unique_name: string;
-    nbf: string;
-    exp: string;
-    iat: string;
+    nbf: number;
+    exp: number;
+    iat: number;
 }
 
 export default APIToken;

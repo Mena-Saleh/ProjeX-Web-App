@@ -39,6 +39,10 @@ namespace ProjeX_API.Data
                 .HasForeignKey(uf => uf.FriendId)
                 .OnDelete(DeleteBehavior.Restrict)
                 .HasConstraintName("FK_UserFriend_Friend_User_Id");
+
+
+
+
         }
     }
 }

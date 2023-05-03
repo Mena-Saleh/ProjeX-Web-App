@@ -132,7 +132,7 @@ html {
 /* Home page Hero */
 
 .hero {
-    background-image: linear-gradient(rgba(6, 9, 30, 0.6),rgba(3, 9, 30, 0.8)),url(./public/background7.jpg);
+    background-image: linear-gradient(rgba(6, 9, 30, 0.6),rgba(3, 9, 30, 0.8)),url(images/background7.jpg);
     background-position: center;
     background-size: cover;
     height: 100vh;
@@ -165,10 +165,10 @@ html {
 .hero-button {
     text-decoration: none;
     padding: 10px 20px;
-    font-size: 1.2rem;
+    font-size: 1rem;
     background-color: #fff;
     border: 1px solid var(--primary-color);
-    border-radius: 2px;
+    border-radius: 5px;
     color: var(--dark-color);
     cursor: pointer;
     transition: all 0.3s ease;
@@ -190,7 +190,7 @@ html {
     justify-content: space-evenly;
     align-items: center;
     padding: 50px;
-    background-color: var(--light-color);
+    background-color: var(--grey-color);
     border: none;
 }
 .news-letter h2{
@@ -224,8 +224,7 @@ html {
 .intro {
     display: flex;
     justify-content: space-between;
-    margin-top: 50px;
-    padding: 50px;
+    padding: 120px 50px;
 }
 
 .intro div{
@@ -283,7 +282,7 @@ div.intro-different-color button:hover{
     justify-content: space-around;
     margin-top: 50px;
     padding: 50px;
-    background-color: var(--light-color);
+    background-color: #FFF;
     color: var(--dark-color)
 }
 
@@ -321,7 +320,7 @@ div.intro-different-color button:hover{
 /* Login and Register forms */
 
 .login-register-container {
-    background-image: linear-gradient(rgba(6, 9, 30, 0.6),rgba(3, 9, 30, 0.8)),url(./public/background7.jpg);
+    background-image: linear-gradient(rgba(6, 9, 30, 0.6),rgba(3, 9, 30, 0.8)),url(images/background7.jpg);
     background-position: center;
     background-size: cover;
     display: flex;
@@ -364,6 +363,7 @@ form label {
     margin-bottom: 10px;
     font-size: 16px;
     font-weight: bold;
+    margin: 10px 0;
     color: var(--darker-color);
 }
 
@@ -418,7 +418,7 @@ form button[type="submit"]:hover {
 /* Users section */
 
 .users-page {
-    background-image: linear-gradient(rgba(6, 9, 30, 0.6),rgba(3, 9, 30, 0.8)),url(./public/background14.jpg);
+    background-image: linear-gradient(rgba(6, 9, 30, 0.6),rgba(3, 9, 30, 0.8)),url(images/background14.jpg);
     background-position: center;
     background-size: cover;
     min-height: 100vh;
@@ -509,7 +509,7 @@ form button[type="submit"]:hover {
 /* Projects page and project cards */
 .projects-page {
     min-height: 100vh;
-    background-image: linear-gradient(rgba(6, 9, 30, 0.6),rgba(3, 9, 30, 0.8)),url(./public/background15.jpg);
+    background-image: linear-gradient(rgba(6, 9, 30, 0.6),rgba(3, 9, 30, 0.8)),url(images/background15.jpg);
     background-position: center;
     background-size: cover;
     height: auto;
@@ -524,7 +524,7 @@ form button[type="submit"]:hover {
     margin-bottom: 50px;
 }
 
-.projects-page p {
+.projects-page h2 {
     color: #FFF;
     font-size: 1.3rem;
     margin-bottom: 60px;
@@ -699,7 +699,7 @@ p {
 /* Boards section */
 
 .boards {
-    background-image: linear-gradient(rgba(6, 9, 30, 0.6),rgba(3, 9, 30, 0.8)),url(./public/background8.jpg);
+    background-image: linear-gradient(rgba(6, 9, 30, 0.6),rgba(3, 9, 30, 0.8)),url(images/background8.jpg);
     background-position: center;
     background-size: cover;
     padding: 80px 20px;
@@ -754,7 +754,7 @@ p {
 
 .category h3 {
     color: var(--dark-color);
-    padding: 5px;
+    padding: 10px;
     font-size: 14px;
 }
 
@@ -894,10 +894,13 @@ p {
     .news-letter button{
         width: 80px;
     }
+
+  
+
     .intro{
         flex-direction: column;
         align-items: center;
-        padding: 20px;
+        padding: 50px;
     }
 
     .intro div{
@@ -939,9 +942,10 @@ p {
         flex-direction: column;
         align-items: normal;
     }
-    .users-page h2{
+    .users-page h2,.projects-page h2{
         font-size: 18px;
     }
+
 
     .add-friend,
     .remove-friend {

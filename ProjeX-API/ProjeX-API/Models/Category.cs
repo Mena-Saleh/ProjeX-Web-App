@@ -7,6 +7,8 @@ namespace ProjeX_API.Models
         public int Id { get; set; }
         [Required]
         public string Name { get; set; }
+
+        //public Project Project { get; set; }
         public ICollection<Task> Tasks { get; set; }
 
 

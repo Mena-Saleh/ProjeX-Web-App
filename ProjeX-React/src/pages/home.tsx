@@ -31,14 +31,6 @@ function Home({ isLoggedIn }: Props) {
                 <p>The ultimate project management system</p>
                 {renderHeroLink()}
             </section>
-            <section className="news-letter">
-                <h2>Sign up for our news letter</h2>
-                <div>
-                    <input type="text" />
-                    <button>Subscribe</button>
-                </div>
-            </section>
-
             <section className="intro">
                 <div>
                     <i className="fa fa-plus"></i>
@@ -65,22 +57,6 @@ function Home({ isLoggedIn }: Props) {
                     <button>Read More</button>
                 </div>
             </section>
-            <section className="learn-more">
-                <div>
-                    <h1>How it works</h1>
-                    <h2>Lorem ipsum dolor sit amet.</h2>
-                    <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing
-                        elit. Ea, dolorem voluptatem impedit incidunt inventore
-                        vitae?
-                    </p>
-                    <button className="hero-button">Read More</button>
-                </div>
-                <img
-                    src="././public/Svgs/undraw_scrum_board.svg"
-                    alt="how it works"
-                />
-            </section>
             <section className="learn-more learn-more-dark">
                 <img
                     src="././public/Svgs/undraw_dev_productivity.svg"
@@ -97,6 +73,29 @@ function Home({ isLoggedIn }: Props) {
                         vitae?
                     </p>
                     <button className="hero-button">Read More</button>
+                </div>
+            </section>
+            <section className="learn-more">
+                <div>
+                    <h1>How it works</h1>
+                    <h2>Lorem ipsum dolor sit amet.</h2>
+                    <p>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing
+                        elit. Ea, dolorem voluptatem impedit incidunt inventore
+                        vitae?
+                    </p>
+                    <button className="hero-button">Read More</button>
+                </div>
+                <img
+                    src="././public/Svgs/undraw_scrum_board.svg"
+                    alt="how it works"
+                />
+            </section>
+            <section className="news-letter">
+                <h2>Sign up for our news letter</h2>
+                <div>
+                    <input type="text" />
+                    <button>Subscribe</button>
                 </div>
             </section>
         </>

@@ -12,13 +12,12 @@ const Login: React.FC<Props> = ({ onLogin }: Props) => {
     const [error, setError] = useState("");
     const navigate = useNavigate();
     const URL = env.VITE_API_URL;
-
+ 
     const handleSubmit = async (event: FormEvent) => {
         event.preventDefault();
         setError("");
 
         try {
-            // Send email and password to server
             const response = await fetch(URL + "/user/login", {
                 method: "POST",
                 body: JSON.stringify({ email, password }),
@@ -30,7 +29,7 @@ const Login: React.FC<Props> = ({ onLogin }: Props) => {
             if (response.ok) {
                 const { token } = await response.json();
                 onLogin(token);
-                navigate("/"); // Redirect to home page
+                navigate("/");
             } else {
                 setError("Invalid email or password");
             }

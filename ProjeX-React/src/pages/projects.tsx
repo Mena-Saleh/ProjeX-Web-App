@@ -39,7 +39,7 @@ function Projects({ loggedInID }: Props) {
     return (
         <section className="projects-page">
             <h1>Projects</h1>
-            <p>Here you can manage and navigate your projects</p>
+            <h2>Here you can manage and navigate your projects</h2>
             <div className="cards-grid">
                 {projects.map((project) => (
                     <Project

@@ -25,7 +25,6 @@ const Register: React.FC<Props> = ({ onRegister }: Props) => {
         }
 
         try {
-            // Send email, username, and password to server
             const response = await fetch(URL + "/user/register", {
                 method: "POST",
                 body: JSON.stringify({ email, username, password }),
@@ -37,7 +36,7 @@ const Register: React.FC<Props> = ({ onRegister }: Props) => {
             if (response.ok) {
                 const { token } = await response.json();
                 onRegister(token);
-                navigate("/"); // Redirect to home page
+                navigate("/");
             } else {
                 setError(
                     "Error registering user, make sure all fields are filled and that email address is unique"
