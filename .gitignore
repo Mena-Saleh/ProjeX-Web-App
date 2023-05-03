@@ -1,0 +1,30 @@
+# Logs
+ProjeX-React/logs
+ProjeX-React/*.log
+ProjeX-React/npm-debug.log*
+ProjeX-React/yarn-debug.log*
+ProjeX-React/yarn-error.log*
+ProjeX-React/pnpm-debug.log*
+ProjeX-React/lerna-debug.log*
+
+ProjeX-React/node_modules
+ProjeX-React/dist
+ProjeX-React/dist-ssr
+ProjProjeX-React/eX-ReactProjeX-React//*.local
+ProjeX-React/
+# EdProjeX-React/itor directories and files
+ProjeX-React/.vscProjeX-React/ode/*
+ProjeX-React/!.vsProjeX-React/code/extensions.json
+ProjeX-React/.ideProjeX-React/a
+ProjeX-React/.DS_ProjeX-React/Store
+ProjeX-React/*.suProjeX-React/o
+ProjeX-React/*.ntProjeX-React/vs*
+ProjeX-React/*.njProjeX-React/sproj
+ProjeX-React/*.slProjeX-React/n
+ProjeX-React/*.sw?
+
+
+# .env
+ProjeX-React/.env
+ProjeX-API/ProjeX-API/.env
+
