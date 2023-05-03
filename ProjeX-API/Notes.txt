@@ -1,1 +1,0 @@
-Go to AppSettings.json and configure the connection string to be able to run this app

@@ -40,9 +40,6 @@ namespace ProjeX_API.Data
                 .OnDelete(DeleteBehavior.Restrict)
                 .HasConstraintName("FK_UserFriend_Friend_User_Id");
 
-
-
-
         }
     }
 }
