@@ -30,7 +30,7 @@ To run the project you need to:
 
 -   Open the folder ProjeX-React in vs code.
 -   Run the command " npm i " to install all required packages.
--   Create a .env file and add this entry " VITE_API_URL=https://localhost:7114 " which is basically the environment variable for the API URL.
+-   Create a .env (in the root directore of ProjeX-React) file and add this entry " VITE_API_URL=https://localhost:7114 " which is basically the environment variable for the API URL.
 -   Run the React Server using the command " npm run dev ".
 
 3. Enjoy :D the project is working now
