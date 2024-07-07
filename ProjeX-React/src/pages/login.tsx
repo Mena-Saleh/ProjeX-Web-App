@@ -27,12 +27,10 @@ const Login: React.FC<Props> = ({ onLogin }: Props) => {
             });
 
             if (response.ok) {
-                console.log(URL);
                 const { token } = await response.json();
                 onLogin(token);
                 navigate("/");
             } else {
-                console.log(response);
                 setError("Invalid email or password");
             }
         } catch (error) {

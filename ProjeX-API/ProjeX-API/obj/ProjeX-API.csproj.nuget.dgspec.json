@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Mena\\Desktop\\ProjeX-Web-App\\ProjeX-API\\ProjeX-API\\ProjeX-API.csproj": {}
+    "C:\\Users\\MenaA\\OneDrive\\Desktop\\Active Projects\\ProjeX-Web-App\\ProjeX-API\\ProjeX-API\\ProjeX-API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Mena\\Desktop\\ProjeX-Web-App\\ProjeX-API\\ProjeX-API\\ProjeX-API.csproj": {
+    "C:\\Users\\MenaA\\OneDrive\\Desktop\\Active Projects\\ProjeX-Web-App\\ProjeX-API\\ProjeX-API\\ProjeX-API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mena\\Desktop\\ProjeX-Web-App\\ProjeX-API\\ProjeX-API\\ProjeX-API.csproj",
+        "projectUniqueName": "C:\\Users\\MenaA\\OneDrive\\Desktop\\Active Projects\\ProjeX-Web-App\\ProjeX-API\\ProjeX-API\\ProjeX-API.csproj",
         "projectName": "ProjeX-API",
-        "projectPath": "C:\\Users\\Mena\\Desktop\\ProjeX-Web-App\\ProjeX-API\\ProjeX-API\\ProjeX-API.csproj",
-        "packagesPath": "C:\\Users\\Mena\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mena\\Desktop\\ProjeX-Web-App\\ProjeX-API\\ProjeX-API\\obj\\",
+        "projectPath": "C:\\Users\\MenaA\\OneDrive\\Desktop\\Active Projects\\ProjeX-Web-App\\ProjeX-API\\ProjeX-API\\ProjeX-API.csproj",
+        "packagesPath": "C:\\Users\\MenaA\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\MenaA\\OneDrive\\Desktop\\Active Projects\\ProjeX-Web-App\\ProjeX-API\\ProjeX-API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Mena\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\MenaA\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,10 +40,6 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "BCrypt.Net": {
-              "target": "Package",
-              "version": "[0.1.0, )"
-            },
             "DotNetEnv": {
               "target": "Package",
               "version": "[2.5.0, )"
@@ -52,19 +48,19 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.0-preview.3.23174.2, )"
+              "version": "[7.0.9, )"
             },
             "Microsoft.EntityFrameworkCore.Relational": {
               "target": "Package",
-              "version": "[8.0.0-preview.3.23174.2, )"
+              "version": "[7.0.9, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[8.0.0-preview.3.23174.2, )"
+              "version": "[7.0.9, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.2.3, )"
+              "version": "[6.5.0, )"
             }
           },
           "imports": [
@@ -86,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

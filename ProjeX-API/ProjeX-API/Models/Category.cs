@@ -10,8 +10,6 @@ namespace ProjeX_API.Models
 
         public ICollection<Task> Tasks { get; set; }
 
-
-
         public Category() { 
             Tasks = new List<Task>();
         }

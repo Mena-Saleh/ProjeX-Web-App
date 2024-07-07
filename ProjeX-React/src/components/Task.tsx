@@ -5,72 +5,76 @@ import generateRandomColor from "../utils/randomColorGenerator";
 import env from "../utils/env";
 import Profile from "./Profile";
 interface Props {
-    task: TaskType;
-    fetchProject: () => void;
+  task: TaskType;
+  fetchProject: () => void;
 }
 const Task = ({ task, fetchProject }: Props) => {
-    const URL = env.VITE_API_URL;
-    const [showDetailsPopup, setShowDetailsPopup] = useState(false);
-    const handleOnCheck = (event: React.ChangeEvent<HTMLInputElement>) => {
-        console.log(event.target.checked);
-        changeTaskStatus(event.target.checked);
-    };
+  const URL = env.VITE_API_URL;
+  const [showDetailsPopup, setShowDetailsPopup] = useState(false);
+  const handleOnCheck = (event: React.ChangeEvent<HTMLInputElement>) => {
+    changeTaskStatus(event.target.checked);
+  };
 
-    const handleDelete = async () => {
-        // const response = await fetch(URL + `/Projects//tasks${task.id}`, {
-        //     method: "DELETE",
-        // }).catch((error) => {
-        //     console.log(error);
-        // });
-        // handleCloseDetailsPopup();
-        // fetchProject();
-    };
+  const handleDelete = async (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    try {
+      const response = await fetch(URL + `/Projects/tasks/${task.id}`, {
+        method: "DELETE",
+      });
 
-    const handleShowDetailsPopup = () => {
-        setShowDetailsPopup(true);
-    };
+      if (response.ok) {
+        fetchProject();
+        handleCloseDetailsPopup();
+      } else {
+        console.log("Error: Unable to delete the task");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-    const handleCloseDetailsPopup = () => {
-        setShowDetailsPopup(false);
-    };
+  const handleShowDetailsPopup = () => {
+    setShowDetailsPopup(true);
+  };
 
-    const changeTaskStatus = async (status: boolean) => {
-        const response = await fetch(
-            `${URL}/projects/tasks/${task.id}/${status}`,
-            {
-                method: "PUT",
-            }
-        );
-    };
+  const handleCloseDetailsPopup = () => {
+    setShowDetailsPopup(false);
+  };
 
-    return (
-        <>
-            <div className="task-card" onClick={handleShowDetailsPopup}>
-                <div className="task-header">
-                    <h4>{task.name}</h4>
-                    <input
-                        type="checkbox"
-                        id="status"
-                        name="status"
-                        defaultChecked={task.isFinished}
-                        onChange={handleOnCheck}
-                        onClick={(event) => {
-                            // Stop propagation of the event to parent task card
-                            event.stopPropagation();
-                        }}
-                    ></input>
-                    <Profile name={task.assignedToName}></Profile>
-                </div>
-            </div>
-            {showDetailsPopup && (
-                <TaskDetailsForm
-                    onDelete={handleDelete}
-                    task={task}
-                    onClose={handleCloseDetailsPopup}
-                ></TaskDetailsForm>
-            )}
-        </>
-    );
+  const changeTaskStatus = async (status: boolean) => {
+    const response = await fetch(`${URL}/projects/tasks/${task.id}/${status}`, {
+      method: "PUT",
+    });
+  };
+
+  return (
+    <>
+      <div className="task-card" onClick={handleShowDetailsPopup}>
+        <div className="task-header">
+          <Profile name={task.assignedToName}></Profile>
+          <h4>{task.name}</h4>
+          <input
+            type="checkbox"
+            id="status"
+            name="status"
+            defaultChecked={task.isFinished}
+            onChange={handleOnCheck}
+            onClick={(event) => {
+              // Stop propagation of the event to parent task card
+              event.stopPropagation();
+            }}
+          ></input>
+        </div>
+      </div>
+      {showDetailsPopup && (
+        <TaskDetailsForm
+          onDelete={handleDelete}
+          task={task}
+          onClose={handleCloseDetailsPopup}
+        ></TaskDetailsForm>
+      )}
+    </>
+  );
 };
 
 export default Task;
