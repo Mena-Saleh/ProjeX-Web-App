@@ -31,7 +31,7 @@ Boards can be created and shared to showcase a project's tasks, including assign
 
 ## Setup And Initialization
 
-To run the project you need to:
+To run the project (on a local machine) you need to:
 
 1. Configure the API:
 
