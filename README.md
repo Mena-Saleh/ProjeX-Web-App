@@ -19,19 +19,19 @@ multiple categories of tasks for users to track progress on.
 
 Home screen featuring a simplistic modern design.
 
-![Home Page](Screenshots\0.png)
+![Home Page](Screenshots/0.png)
 
 Users can add each other as friends.
 
-![Users Page](Screenshots\2.png)
+![Users Page](Screenshots/2.png)
 
 Boards can be created and shared to showcase a project's tasks, including assigned users and the status of each task (completed or not).
 
-![Boards Page](Screenshots\1.png)
+![Boards Page](Screenshots/1.png)
 
 ## Setup And Initialization
 
-To run the project you need to:
+To run the project (on a local machine) you need to:
 
 1. Configure the API:
 
