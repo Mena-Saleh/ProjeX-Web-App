@@ -740,7 +740,7 @@ p {
 }
 
 .category-header {
-  padding: 0px 20px;
+  padding: 10px 20px 0px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -753,24 +753,39 @@ p {
 }
 
 .new-category {
-  height: 50%;
+  min-height: 10%;
+  height: 15%;
   transition: 0.3s;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 .new-category button {
+  color: var(--primary-greyish-color);
+  font-weight: 600;
   cursor: pointer;
   border: none;
   background-color: transparent;
-  font-size: 1rem;
-  padding: 100px 0;
+  font-size: 15px;
 }
+
 .new-category:hover {
   background-color: #eee;
   box-shadow: 1px 1px 3px 1px #aaa;
 }
 
+.add-icon {
+  padding: 0 10px;
+  transform: scale(1.1);
+}
+
 /* Task Cards */
 .task-card {
+  font-size: 12px;
+  color: #2c1b07;
+  font-weight: 800;
   background-color: #ffffff;
   box-shadow: 1px 1px 0px 1px #ccc;
   width: 90%;
@@ -789,7 +804,8 @@ p {
 
 .task-card h4 {
   color: #2c1b07;
-  font-size: 13px;
+  font-size: 14px;
+  font-weight: 100;
 }
 
 .task-card p {
@@ -818,7 +834,7 @@ p {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px;
+  padding: 10px 0;
 }
 
 .new-task-card {

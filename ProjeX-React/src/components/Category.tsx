@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import TaskType from "../types/Task";
 import Task from "./Task";
 import TaskForm from "./TaskForm";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus, faX } from "@fortawesome/free-solid-svg-icons";
 
 interface Props {
   projectId: string;
@@ -33,6 +35,7 @@ const Category = ({ projectId, id, name, tasks, fetchProject }: Props) => {
           className="task-card new-task-card"
           onClick={handleShowNewTaskPopup}
         >
+          <FontAwesomeIcon className="add-icon" icon={faPlus} />
           <div className="task-header">New Task</div>
         </div>
         {showNewTaskPopup && (
