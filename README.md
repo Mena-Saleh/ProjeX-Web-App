@@ -59,6 +59,7 @@ This project is incomplete and is missing a few features:
 
 - Edit and delete options are not available yet for some entites like task cards, user accounts etc.
 - Task cards should be movable between categories using the mouse but it is not yet implemented.
+- Right now, sessions rely on tokens saved in local storage which is not the most secure and is vulernable to XSS attacks, The best would be to use cookies for more security.
 
 ## Copyrights And Acknowledgements
 
