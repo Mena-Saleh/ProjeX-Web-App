@@ -89,5 +89,5 @@ This project is solely done by the author Mena Ashraf.
 - **About The Author**
   - Name: Mena Ashraf Mikhael Saleh
   - Email: [Mena.a.saleh.2001@gmail.com](mailto:Mena.a.saleh.2001@gmail.com)
-  - GitHub: [Mena-Ibrahim](https://github.com/Mena-Ibrahim)
+  - GitHub: [Mena-Saleh](https://github.com/Mena-Saleh)
   - LinkedIn: [Mena Saleh](https://www.linkedin.com/in/mena-saleh-23b947167/)
