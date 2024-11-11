@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ProjeX_API.Dtos
+namespace ProjeX_API.DTOs
 {
     public class UserLoginDto
     {

@@ -37,7 +37,7 @@ const Navbar: React.FC<Props> = ({ isLoggedIn, token, onLogout }: Props) => {
   return (
     <nav>
       <Link to="/">
-        <img src="././public/Logo3.png" alt="logo" className="logo"></img>
+        <img src="/Logo3.png" alt="logo" className="logo"></img>
       </Link>
       <ul>
         <div>

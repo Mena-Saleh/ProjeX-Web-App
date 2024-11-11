@@ -3,7 +3,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using ProjeX_API.Dtos;
 using ProjeX_API.DTOs;
 using ProjeX_API.Models;
 using ProjeX_API.Services;

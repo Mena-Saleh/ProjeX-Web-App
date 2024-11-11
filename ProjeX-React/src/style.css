@@ -33,6 +33,9 @@ nav {
   justify-content: flex-start;
   color: #fff;
   box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
 }
 
 nav ul {
@@ -131,7 +134,7 @@ html {
 
 .hero {
   background-image: linear-gradient(rgba(6, 9, 30, 0.6), rgba(3, 9, 30, 0.8)),
-    url(images/background7.jpg);
+    url(/background1.jpg);
   background-position: center;
   background-size: cover;
   height: 100vh;
@@ -173,7 +176,7 @@ html {
   color: var(--darker-color);
   cursor: pointer;
   transition: all 0.3s ease;
-  border: 1px solid var(--darker-color);
+  border: none;
   font-weight: 600;
 }
 
@@ -328,7 +331,7 @@ div.intro-different-color button:hover {
 
 .login-register-container {
   background-image: linear-gradient(rgba(6, 9, 30, 0.6), rgba(3, 9, 30, 0.8)),
-    url(images/background7.jpg);
+    url(/background3.jpg);
   background-position: center;
   background-size: cover;
   display: flex;
@@ -336,6 +339,7 @@ div.intro-different-color button:hover {
   align-items: center;
   height: 100vh;
 }
+
 .login-register-container p {
   margin-top: 20px;
   display: inline;
@@ -357,7 +361,7 @@ div.intro-different-color button:hover {
 
 form {
   overflow: hidden;
-  background-color: #ffffff;
+  background-color: #ffffffcc;
   width: 400px;
   max-width: 600px;
   padding: 50px;
@@ -426,7 +430,7 @@ form button[type="submit"]:hover {
 
 .users-page {
   background-image: linear-gradient(rgba(6, 9, 30, 0.6), rgba(3, 9, 30, 0.8)),
-    url(images/background14.jpg);
+    url(/background14.jpg);
   background-position: center;
   background-size: cover;
   min-height: 100vh;
@@ -520,7 +524,7 @@ form button[type="submit"]:hover {
 .projects-page {
   min-height: 100vh;
   background-image: linear-gradient(rgba(6, 9, 30, 0.6), rgba(3, 9, 30, 0.8)),
-    url(images/background15.jpg);
+    url(/background15.jpg);
   background-position: center;
   background-size: cover;
   height: auto;
@@ -709,7 +713,7 @@ p {
 
 .boards {
   background-image: linear-gradient(rgba(6, 9, 30, 0.6), rgba(3, 9, 30, 0.8)),
-    url(images/background8.jpg);
+    url(/background8.jpg);
   background-position: center;
   background-size: cover;
   padding: 80px 20px;
@@ -732,7 +736,7 @@ p {
   height: auto;
   background-color: #f9f9f9dd;
   box-shadow: 1px 1px 1px 1px #ccc;
-  width: 280px;
+  width: 310px;
   border-radius: 20px;
   margin: 0px 20px;
   flex-shrink: 0;
